@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = () => {
 
     let http = new XMLHttpRequest();
 
