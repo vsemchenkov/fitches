@@ -1,5 +1,5 @@
 window.onload = () => {
-
+    
     genWrap(function* () {
         let movies = yield $.get('/js/asynchronous/data/movies.json');
         console.log(movies);
@@ -11,6 +11,7 @@ window.onload = () => {
         gen = generator();
 
         function handle(yielded) {
+            console.log(yielded)
             if (!yielded.done) {
                 yielded.value.then((data) => {
                     return handle(gen.next(data));
@@ -20,4 +21,6 @@ window.onload = () => {
 
         return handle(gen.next())
     }
+
+
 }
